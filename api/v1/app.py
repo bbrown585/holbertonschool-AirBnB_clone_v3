@@ -30,12 +30,14 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
+
 app.config['SWAGGER'] = {
     'title': 'AirBnB clone Restful API',
     'uiversion': 3
 }
 
 Swagger(app)
+
 
 if __name__ == '__main__':
     host = environ.get('HBNB_API_HOST', default='0.0.0.0')
