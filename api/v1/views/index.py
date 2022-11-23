@@ -8,7 +8,9 @@ from models.state import State
 from models.user import User
 from models import storage
 from api.v1.views import app_views
-from flask import jsonify
+from flask import jsonify, Flask
+
+app = Flask(__name__)
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
@@ -28,3 +30,6 @@ def number_objects():
         num_objs[names[i]] = storage.count(classes[i])
 
     return jsonify(num_objs)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
