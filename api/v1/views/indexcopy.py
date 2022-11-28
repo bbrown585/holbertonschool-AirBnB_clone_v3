@@ -28,3 +28,4 @@ def stats_route():
         "users": storage.count("User")
     }
     return jsonify(count_directory)
+
