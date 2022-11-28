@@ -13,7 +13,7 @@ def all_states():
     return jsonify(states_list)
 
 
-@app_views.route('/states/<state_id>', strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 def get_state(state_id):
     """ GET /states/<state_id> """
     try:
@@ -26,7 +26,7 @@ def get_state(state_id):
 @app_views.route('/states/<state_id>', methods=['DELETE'],
                  strict_slashes=False)
 def del_state(state_id):
-    """ DELETE /api/v1/states/<state_id> """
+    """ DELETE /states/<state_id> """
     state = storage.get(State, state_id)
     if state:
         storage.delete(state)
@@ -37,7 +37,7 @@ def del_state(state_id):
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
 def create_state():
-    """ POST /api/v1/states """
+    """ POST /states """
     post_state = request.get_json()
     if not post_state:
         abort(400, {'Not a JSON'})
