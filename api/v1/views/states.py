@@ -20,8 +20,17 @@ def get_states():
     return jsonify(list_states)
 
 
+<<<<<<< HEAD
 @app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/state/get_id_state.yml', methods=['get'])
+=======
+<<<<<<< HEAD
+@app_views.route('/states', methods=['GET'], strict_slashes=False)
+@swag_from('documentation/state/get_id_state.yml', methods=['GET'])
+=======
+@app_views.route('/api/v1/states/<state_id>', strict_slashes=False)
+>>>>>>> e70c2e9c2fde03839122607becaa95e1bea7d547
+>>>>>>> 1ec5cfa79157822382906b8c18d141d367c27599
 def get_state(state_id):
     """ Retrieves a specific State """
     state = storage.get(State, state_id)
